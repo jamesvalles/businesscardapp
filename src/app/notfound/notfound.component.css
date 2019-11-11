@@ -2,5 +2,9 @@
     position: relative;
     left:400px;
     top: -210px;
-    
+ 
+}
+
+.material-icons{
+font-size: 30px;
 }
