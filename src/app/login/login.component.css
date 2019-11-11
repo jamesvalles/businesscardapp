@@ -1,0 +1,22 @@
+.login-form{
+    width: 50%;
+    background-color: white;
+    border: 1px solid rgb(218, 216, 216);
+ 
+        position: relative;
+        left:400px;
+        top: -210px;
+        
+    }
+
+
+.logreg-forms{
+    padding: 20px;
+    width: 65% ;
+    position: relative;
+    margin: auto;
+}
+
+.form-signin{
+    
+}

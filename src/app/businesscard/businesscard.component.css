@@ -1,0 +1,10 @@
+.mdc-card{
+    width: 400px;
+    padding: 15px;
+}
+
+.app-businesscard{
+    position: relative;
+    left:400px;
+    top: -210px; 
+}
