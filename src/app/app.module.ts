@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BusinesscardComponent } from './businesscard/businesscard.component';
 import { NewsbusinesscardComponent } from './newsbusinesscard/newsbusinesscard.component';
-import { WebcamComponent } from './webcam/webcam.component';
 import { BusinesscardsComponent } from './businesscards/businesscards.component';
 import { SearchbusinesscardsComponent } from './searchbusinesscards/searchbusinesscards.component';
 import { LoginComponent } from './login/login.component';
@@ -16,13 +14,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { FooterComponent } from './footer/footer.component';
 import { CameraComponent } from './camera/camera.component';
+import {WebcamModule} from 'ngx-webcam';
 
 @NgModule({
   declarations: [
     AppComponent,
     BusinesscardComponent,
     NewsbusinesscardComponent,
-    WebcamComponent,
     BusinesscardsComponent,
     SearchbusinesscardsComponent,
     LoginComponent,
@@ -37,6 +35,7 @@ import { CameraComponent } from './camera/camera.component';
   imports: [
     BrowserModule,
     AppRoutingModule, 
+    WebcamModule
    
   ],
   providers: [],

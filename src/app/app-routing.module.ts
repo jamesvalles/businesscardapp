@@ -9,6 +9,7 @@ import { BusinesscardComponent } from './businesscard/businesscard.component';
 
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent}, 
   {path: 'camera', component: CameraComponent},
   {path: 'new', component: NewsbusinesscardComponent},
