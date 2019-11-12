@@ -17,6 +17,9 @@ import { CameraComponent } from './camera/camera.component';
 import {WebcamModule} from 'ngx-webcam';
 import { ProfileComponent } from './profile/profile.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    WebcamModule
+    WebcamModule,
+    AngularFireModule.initializeApp(environment.firebase)
    
   ],
   providers: [],
