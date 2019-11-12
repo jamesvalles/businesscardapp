@@ -1,15 +1,13 @@
 .app-navbar{
-position: relative;
-top: 40px;
-left:100px;
+    position: fixed; left: 0; top:0px;z-index: 1000
 }
 
 .app-topnav{
-    position: relative;
+    position: fixed; right:0; width: 25%; z-index: 999;
 
 }
 
 .app-footer{
-   
+
 }
 

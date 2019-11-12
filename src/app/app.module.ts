@@ -15,6 +15,7 @@ import { TopnavComponent } from './topnav/topnav.component';
 import { FooterComponent } from './footer/footer.component';
 import { CameraComponent } from './camera/camera.component';
 import {WebcamModule} from 'ngx-webcam';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {WebcamModule} from 'ngx-webcam';
     NavbarComponent,
     TopnavComponent,
     FooterComponent,
-    CameraComponent
+    CameraComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
