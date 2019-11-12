@@ -1,19 +1,29 @@
-<div class = "app-camera">
-        <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+<div class="app-camera">
+        <div class="mdc-card demo-card">
+            <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
+              <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
                 [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
                 [videoOptions]="videoOptions"
                 [imageQuality]="1"
                 (cameraSwitched)="cameraWasSwitched($event)"
                 (initError)="handleInitError($event)"
         ></webcam>
-        <br/>
-        <button class="btn btn-light" (click)="triggerSnapshot();">Take A Snapshot</button>
-        <button class="btn btn-light" (click)="toggleWebcam();">Toggle Webcam</button>
-        <br/>
+        
 
-        <div class="snapshot" *ngIf="webcamImage">
-               <p> Current Image:</p>
-               <br> <img [src]="webcamImage.imageAsDataUrl" width="500" />
-              </div>
-      </div>
+      
+            
+              <div class="mdc-card__action-icons">
+               <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" (click)="triggerSnapshot();" data-mdc-ripple-is-unbounded="true">add_a_photo</button>
+                 </div>
+                 <br>
+          </div> 
+      
+        </div>
 
+
+
+<div class="snapshot" *ngIf="webcamImage">
+        <br> <img [src]="webcamImage.imageAsDataUrl" width="500" />
+       </div>
+       <div class = "save" *ngIf="webcamImage">  <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="webcamImage" (click)="save();">Add Business Card</button>
+       </div>

@@ -80,6 +80,10 @@ public get triggerObservable(): Observable<void> {
 public get nextWebcamObservable(): Observable<boolean|string> {
   return this.nextWebcam.asObservable();
 }
+
+public save(){
+  console.log("Save picture"); 
+}
 }
 
 
