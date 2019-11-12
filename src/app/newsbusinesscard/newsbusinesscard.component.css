@@ -1,6 +1,8 @@
 .app-newbusinesscard{
     position: relative;
-    left:400px;
-    top: -210px;
-    
+    left:480px;
+    top: 100px;
+    width: 530px;
+    padding: 15px; 
+   
 }
