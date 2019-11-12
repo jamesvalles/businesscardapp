@@ -1,17 +1,17 @@
 	/*=-footer-=*/
     footer {
-        color: #fff;
+        color: #132644;
         background-attachment: fixed;
-        background-color:#222;
+        background-color: #e9ebee;
 background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
         background-size: cover;
         background-position: bottom;
     }
     footer p {
-        color: #ccc;				
+        color: rgb(19, 18, 18);				
     }
 footer a {
-        color: #ccc;				
+        color: rgb(12, 49, 97);				
     }
     .social-pet li {
         display: inline-block;
@@ -46,7 +46,7 @@ footer a {
     }
     .recent-post li {
         display: block;
-        color: #ccc;
+        color: rgb(46, 46, 46);
         margin-bottom: 25px;
     }
     .recent-post li label {
@@ -70,11 +70,17 @@ footer a {
         font-size: 18px;
     }
     .f-address li a {
-        color: #ccc;
+        color: rgb(39, 39, 39);
     }
     /*=-Copyright-=*/
     .copyright {
-        background-color: #111;
+        background-color: #e9ebee;
         padding: 12px 0;
         font-size:14px;
+        color: black;
+        
+    }
+
+    .text-white {
+        color: rgb(14, 14, 14)!important;
     }

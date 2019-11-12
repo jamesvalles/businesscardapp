@@ -14,7 +14,7 @@
     }
     
     .sidebar-expanded {
-        width: 230px;
+        width: 360px;
     }
     
     .sidebar-collapsed {
@@ -60,4 +60,9 @@
     
     a.bg-dark {
         background-color: #132644 !important;
+    }
+
+
+    .list-group{
+        margin-top: 100px;
     }
