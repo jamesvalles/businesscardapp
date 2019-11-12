@@ -19,6 +19,11 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { FireStoreService } from './firestore.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,10 +46,14 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule, 
     WebcamModule,
-    AngularFireModule.initializeApp(environment.firebase)
-   
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, 
+    AngularFireAuthModule, 
+    AngularFireStorageModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [FireStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

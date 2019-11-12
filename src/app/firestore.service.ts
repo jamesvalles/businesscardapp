@@ -1,7 +1,7 @@
 import { Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import {Card} from '../model/card'
+import {Card} from './model/card'
 
 @Injectable({
   providedIn: 'root'
@@ -18,15 +18,16 @@ export class FireStoreService{
    }
 
   create(businessCard : Card){
+   console.log("Object in service: " + businessCard.name);
   console.log("Pushed card to database.")
   this.db.collection('cards').doc(businessCard.phone).set({
+    Address: businessCard.address,
+    Email: businessCard.email,
     Name: businessCard.name,
     Phone: businessCard.phone,
     Title: businessCard.title, 
     Web:  businessCard.web,
-    Address: businessCard.address,
-    Email: businessCard.email
-})
+});
 }
 
  update(businessCard : Card){

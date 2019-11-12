@@ -8,12 +8,10 @@
     web: string; 
     address : string; 
    
-
-
     constructor(){
     }
 
-    setemail(email : string){
+    setEmail(email : string){
         this.email = email; 
     }
 
@@ -23,6 +21,10 @@
 
     setName(name : string){
         this.name = name
+    }
+
+    setCompany(company : string){
+        this.company = company; 
     }
 
     setPhone(phone: string){
