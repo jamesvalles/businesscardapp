@@ -28,6 +28,7 @@ export class NewsbusinesscardComponent implements OnInit {
     const businessCard = this.createBusinessCard();
     console.log(businessCard);
     this._firestoreService.create(businessCard);
+    this.form.reset();
   }
 
   
