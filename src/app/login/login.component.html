@@ -1,14 +1,14 @@
 <div class= "login-form">
 <div id="logreg-forms" class="logreg-forms">
-    <form class="form-signin">
+    <form #f="ngForm" class="form-signin" (ngSubmit)="login(f)"> 
         <br>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-       <br> <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <input type="text" name="email" ngModel id="inputEmail" class="form-control" placeholder="Email address"  required="" autofocus="">
+       <br> <input type="password" name="password" ngModel id="inputPassword" class="form-control" placeholder="Password"  required="">
         <br>
-        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+        <button class="btn btn-success btn-block" type="submit" ><i class="fas fa-sign-in-alt"></i> Sign in</button>
         <hr>
         <!-- <p>Don't have an account!</p>  -->
-        <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+        <button class="btn btn-primary btn-block" type="button" (click) = "signup()" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
         </form>
         <br> 
 </div>
