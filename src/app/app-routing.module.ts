@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent}, 
   {path: 'camera', component: CameraComponent},
   {path: 'new', component: NewsbusinesscardComponent},
-  {path: 'cards', component: BusinesscardComponent},
+  {path: 'cards', component: BusinesscardsComponent},
   {path: '**', component: NotfoundComponent}
 ];
 

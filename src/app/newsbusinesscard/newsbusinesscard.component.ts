@@ -30,6 +30,8 @@ export class NewsbusinesscardComponent implements OnInit {
     this._firestoreService.create(businessCard);
   }
 
+  
+
   createBusinessCard(){
     var businessCard  = new Card();
     businessCard.setName(this.form.controls['name'].value);

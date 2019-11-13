@@ -32,7 +32,7 @@ export class FireStoreService{
 
  update(businessCard : Card){
  console.log("Business card updated successfully.")
- this.db.collection('card').doc(businessCard.phone).set({
+ this.db.collection('cards').doc(businessCard.phone).set({
   Name: businessCard.name,
   Phone: businessCard.phone,
   Title: businessCard.title, 
@@ -43,7 +43,7 @@ export class FireStoreService{
 }
 
  destroy(id : string){
-  console.log("Business card removed from Firebase.")
-  this.db.collection("todos").doc(id).delete();
+  console.log("Business card removed from Firebase. " + id)
+  this.db.collection('cards').doc(id).delete();
 }
 }
