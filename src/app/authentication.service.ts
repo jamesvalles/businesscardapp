@@ -23,4 +23,16 @@ export class AuthenticationService {
         console.log('Something is wrong:',err.message);
       });
   }
+
+  authCheck(){
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+       console.log("User is logged in!");
+       return true;
+      } else {
+        console.log("User is not logged in")
+        return false;
+      }
+      });
+  }
 }

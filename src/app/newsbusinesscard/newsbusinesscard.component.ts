@@ -44,4 +44,6 @@ export class NewsbusinesscardComponent implements OnInit {
     businessCard.setAddress(this.form.controls['address'].value);
     return businessCard;
   }
+
+  
 }
