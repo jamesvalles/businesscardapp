@@ -24,6 +24,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WebcamconnectService } from './webcamconnect.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,9 +53,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireAuthModule, 
     AngularFireStorageModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [FireStoreService],
+  providers: [FireStoreService, WebcamconnectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

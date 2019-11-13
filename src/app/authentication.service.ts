@@ -3,36 +3,68 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import * as firebase from 'firebase/app'
 import { AngularFireModule } from '@angular/fire';
 import {environment} from '../environments/environment'
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  authstate : boolean; 
 
-  constructor(private angularFireAuth : AngularFireModule) {
+  constructor(private angularFireAuth : AngularFireModule, private router : Router) {
     firebase.initializeApp(environment.firebase);
    }
 
    signIn(email: string, password: string) {
      console.log("Authenticated has started.")
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(res => {
-        console.log('Successfully signed in!');
-      })
-      .catch(err => {
-        console.log('Something is wrong:',err.message);
-      });
+   return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  authCheck(){
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-       console.log("User is logged in!");
-       return true;
-      } else {
-        console.log("User is not logged in")
-        return false;
-      }
-      });
+
+  createAccount(email: string, password: string) {
+    console.log("Create account has started.");
+   firebase.auth().createUserWithEmailAndPassword(email, password)
+     .then(res => {
+       console.log('Account successfully created!');
+       alert("Account sucessfully created, please sign-in!")
+     })
+     .catch(err => {
+       console.log('Account creation unsuccessful! ',err.message);
+       alert(err.message)
+     });
+ }
+
+  authCheck(): boolean{
+    let user = firebase.auth().currentUser
+    if(user != null){
+      console.log("User is logged in!" + user);
+      //this.authstate = true;
+      return true;
+    }else{
+     // this.authstate = false; 
+      console.log("User is not logged in!" + user );
+      return false;
+    }
   }
+
+  logout(){
+    firebase.auth().signOut().then(function() {
+     // this.authstate = false; 
+      console.log("Logout successful.")
+    }).catch(function(error) {
+     // this.authstate = true; 
+      console.log("Logout unsuccessful.")
+    });
+  }
+
+
+setAuthState(value : boolean){
+  this.authstate = value; 
+}
+
+getAuthState(){
+  return this.authstate; 
+}
+
 }

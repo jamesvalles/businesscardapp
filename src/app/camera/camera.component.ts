@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 import {Subject} from 'rxjs';
 import {Observable} from 'rxjs';
-
+import {WebcamconnectService} from '../webcamconnect.service';
+declare var require: any;
+import domtoimage from 'dom-to-image';
 
 @Component({
   selector: 'app-camera',
@@ -11,7 +13,13 @@ import {Observable} from 'rxjs';
 })
 export class CameraComponent implements OnInit {
 
-  constructor() {
+  // latest snapshot
+  public webcamImage: WebcamImage = null;
+
+  base64: string;
+  imageUrl;
+
+  constructor(private _googleservice : WebcamconnectService) {
 
   }
 
@@ -34,8 +42,7 @@ public videoOptions: MediaTrackConstraints = {
 };
 public errors: WebcamInitError[] = [];
 
-// latest snapshot
-public webcamImage: WebcamImage = null;
+
 
 // webcam snapshot trigger
 private trigger: Subject<void> = new Subject<void>();
@@ -66,6 +73,7 @@ public showNextWebcam(directionOrDeviceId: boolean|string): void {
 public handleImage(webcamImage: WebcamImage): void {
   console.info('received webcam image', webcamImage);
   this.webcamImage = webcamImage;
+  this.imageUrl = webcamImage.imageAsDataUrl;
 }
 
 public cameraWasSwitched(deviceId: string): void {
@@ -83,6 +91,49 @@ public get nextWebcamObservable(): Observable<boolean|string> {
 
 public save(){
   console.log("Save picture"); 
+  console.log(this.imageUrl);
+
+  //this.convertToBase64();
+  const payload: any = {
+    'requests': [
+      {
+        'image': {
+          'content' : this.imageUrl.substring(23, this.imageUrl.length)
+        },
+        'features': [
+          {
+            'type': 'TEXT_DETECTION',
+            'maxResults': 1
+          }
+        ]
+      }
+    ]
+  }
+
+  this._googleservice.detectText(payload);
+
+}
+
+
+convertToBase64() {
+  // const image = document.createElement('img');
+  // image.src = this.imageUrl;
+  const imgNode = this.imageUrl;
+  if (imgNode ) {
+    console.log('SELECTED IMAGE');
+    console.log(imgNode);
+    console.log('SELECTED IMAGE');
+    domtoimage.toPng(imgNode)
+    .then( (dataUrl: string) => {
+      console.log('SELECTED IMAGE 2');
+      console.log(dataUrl);
+      this.base64 = dataUrl;
+      console.log('SELECTED IMAGE 2');
+    }).catch( (e: any) => {
+      console.log('SELECTED IMAGE BASE64 SOMETHING WENT WRONG');
+      console.log(e);
+    });
+   }
 }
 }
 

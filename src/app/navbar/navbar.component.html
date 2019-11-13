@@ -12,13 +12,24 @@
                 </li>
                 <!-- /END Separator -->
                 <!-- Menu with submenu -->
-                <a routerLink ="/login" routerLinkActive = "active" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <a routerLink ="/login" *ngIf="authstate === false" (click) ="login()" routerLinkActive = "active" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="oi oi-key fa-fw mr-3"></span>
                         <span class="menu-collapsed">Login</span>
                         <span class="submenu-icon ml-auto"></span>
                     </div>
                 </a>
+
+                <a routerLink ="/login" (click)="logout()"  *ngIf="authstate !== false" routerLinkActive = "active" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="oi oi-key fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Logout</span>
+                        <span class="submenu-icon ml-auto"></span>
+                    </div>
+                </a>
+
+
+
                 <a  routerLink ="/cards" routerLinkActive = "active" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="oi oi-pie-chart fa-fw mr-3"></span>

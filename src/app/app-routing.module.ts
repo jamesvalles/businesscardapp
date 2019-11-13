@@ -6,15 +6,15 @@ import { NewsbusinesscardComponent } from './newsbusinesscard/newsbusinesscard.c
 import { BusinesscardsComponent } from './businesscards/businesscards.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { BusinesscardComponent } from './businesscard/businesscard.component';
-
+import {AuthGuardGuard} from '../app/auth-guard.guard';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent}, 
-  {path: 'camera', component: CameraComponent},
-  {path: 'new', component: NewsbusinesscardComponent},
-  {path: 'cards', component: BusinesscardsComponent},
-  {path: '**', component: NotfoundComponent}
+  {path: 'camera', component: CameraComponent, canActivate:[AuthGuardGuard]},
+  {path: 'new', component: NewsbusinesscardComponent, canActivate:[AuthGuardGuard]},
+  {path: 'cards', component: BusinesscardsComponent, canActivate:[AuthGuardGuard]},
+  {path: '**', component: NotfoundComponent,  pathMatch: 'full' }
 ];
 
 @NgModule({

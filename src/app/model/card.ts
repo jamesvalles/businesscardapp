@@ -12,7 +12,8 @@
     }
 
     setEmail(email : string){
-        this.email = email; 
+        this.email = email;
+        debugger 
     }
 
     setAddress(address : string){
@@ -21,6 +22,7 @@
 
     setName(name : string){
         this.name = name
+        debugger
     }
 
     setCompany(company : string){
@@ -29,6 +31,7 @@
 
     setPhone(phone: string){
         this.phone = phone
+        debugger
     }
 
     setTitle(title: string){

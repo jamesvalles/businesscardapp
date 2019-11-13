@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { NgForm } from '@angular/forms';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,24 +11,42 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loggedIn; 
-  constructor(private _authservice : AuthenticationService) {
+  constructor(private _authservice : AuthenticationService, private router : Router) {
 
    }
 
   ngOnInit() {
-    this.loggedIn = this._authservice.authCheck(); 
+  
   }
 
   login(f : NgForm){ 
     console.log("Sign-in button pressed.");
-    console.log("Credentials: " + f.controls['email'].value +", " + f.controls['password'].value);
-    this._authservice.signIn(f.controls['email'].value, f.controls['password'].value);
+    this._authservice.signIn(f.controls['email'].value, f.controls['password'].value)
+    .then(res => {
+      console.log('Successfully signed in!');
+      this.router.navigate['/cards'];
+      this._authservice.setAuthState(true);
+    })
+    .catch(err => {
+      this._authservice.setAuthState(false);
+      console.log('Something is wrong:',err.message);
+      alert(err.message)
+    });
     f.reset();
   }
 
-  
-  signup(){
+
+  signup(f: NgForm){
+    this._authservice.logout();
     console.log("Sign-up button pressed.")
+  // this._authservice.createAccount(f.controls['email'].value, f.controls['password'].value);
+  }
+
+  redirect(){
+    if(this.loggedIn){
+    console.log("User logged in. Redirecting to dashboard")
+    this.router.navigate(['/businesscards']);
+    }
   }
 
   

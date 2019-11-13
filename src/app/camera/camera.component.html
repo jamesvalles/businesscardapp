@@ -23,7 +23,7 @@
 
 
 <div class="snapshot" *ngIf="webcamImage">
-        <br> <img [src]="webcamImage.imageAsDataUrl" width="500" />
+        <br> <img [src]="imageUrl" width="500" />
        </div>
        <div class = "save" *ngIf="webcamImage">  <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="webcamImage" (click)="save();">Add Business Card</button>
        </div>
