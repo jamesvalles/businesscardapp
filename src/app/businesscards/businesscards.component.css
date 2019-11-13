@@ -1,6 +1,10 @@
 .app-businesscards{
     position: relative;
     max-width: 600px;
-    left:480px;
+    left:450px;
     top:100px; 
+}
+
+ul{
+    list-style-type:none;
 }

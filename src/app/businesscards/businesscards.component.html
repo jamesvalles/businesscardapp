@@ -2,7 +2,7 @@
 
         <ul>
                 <li class="text" *ngFor="let card of businessCards | async">
-                    <app-businesscard [title] ="card.Title" [name] = "card.Name" [email] = "card.Email" [phone] = "card.Phone" [web] = "card.Web" [company] = "card.Company"></app-businesscard>
+                    <app-businesscard [title] ="card.Title" [name] = "card.Name" [email] = "card.Email" [phone] = "card.Phone" [web] = "card.Web" [company] = "card.Company" [address] = "card.Address"></app-businesscard>
                 </li>
               </ul>
 </div>
