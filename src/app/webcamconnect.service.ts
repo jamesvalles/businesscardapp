@@ -34,6 +34,8 @@ export class WebcamconnectService {
                 this.businesscard.setEmail(email);
                 return;
               }
+
+              
               // verify phone
               const phone = (temp.match('^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}(.*)$') || [''])[0];
               if (phone !== '') {

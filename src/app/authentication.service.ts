@@ -4,17 +4,29 @@ import * as firebase from 'firebase/app'
 import { AngularFireModule } from '@angular/fire';
 import {environment} from '../environments/environment'
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  authstate : boolean; 
+
+  authstate : Observable<any>; 
 
   constructor(private angularFireAuth : AngularFireModule, private router : Router) {
     firebase.initializeApp(environment.firebase);
    }
+
+   ngOnInit(){
+     //this.authstate = new Observable(observer) =>{
+
+     }
+
+   
+     getUser(){
+       return firebase.auth().currentUser;
+     }
 
    signIn(email: string, password: string) {
      console.log("Authenticated has started.")
@@ -49,18 +61,12 @@ export class AuthenticationService {
   }
 
   logout(){
-    firebase.auth().signOut().then(function() {
-     // this.authstate = false; 
-      console.log("Logout successful.")
-    }).catch(function(error) {
-     // this.authstate = true; 
-      console.log("Logout unsuccessful.")
-    });
+    return firebase.auth().signOut();
   }
 
 
 setAuthState(value : boolean){
-  this.authstate = value; 
+ // this.authstate = value; 
 }
 
 getAuthState(){

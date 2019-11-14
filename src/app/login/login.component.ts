@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loggedIn; 
+  loggedIn = false; 
   constructor(private _authservice : AuthenticationService, private router : Router) {
 
    }
@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
     console.log("Sign-in button pressed.");
     this._authservice.signIn(f.controls['email'].value, f.controls['password'].value)
     .then(res => {
-      console.log('Successfully signed in!');
+      console.log('Successfully signed in! Redirecting.');
       this.router.navigate['/cards'];
-      this._authservice.setAuthState(true);
+  
     })
     .catch(err => {
-      this._authservice.setAuthState(false);
+
       console.log('Something is wrong:',err.message);
       alert(err.message)
     });
@@ -37,9 +37,8 @@ export class LoginComponent implements OnInit {
 
 
   signup(f: NgForm){
-    this._authservice.logout();
     console.log("Sign-up button pressed.")
-  // this._authservice.createAccount(f.controls['email'].value, f.controls['password'].value);
+    this._authservice.createAccount(f.controls['email'].value, f.controls['password'].value);
   }
 
   redirect(){

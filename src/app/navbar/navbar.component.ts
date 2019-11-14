@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {AuthenticationService} from '../authentication.service'
+import {LoginComponent} from '../login/login.component'
+import { ThrowStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +10,10 @@ import {AuthenticationService} from '../authentication.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  authstate : boolean; 
-  returned : boolean; 
+  @Input() loggedIn : boolean; 
+  
 
-  constructor(private _fbauthstate : AuthenticationService) { 
+  constructor(private _fbauthstate : AuthenticationService, private router: Router) { 
   
   }
 
@@ -23,9 +26,12 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-   this._fbauthstate.logout();
-   this.authstate = this._fbauthstate.authCheck(); 
-   //console.log("Logout requested. Current state: " + this.authstate);
-   
+   this._fbauthstate.logout().then(function() {
+     console.log("Logout successful.")
+   //  this.router.navigate['/login'];
+   }).catch(function(error) {
+     console.log("Logout unsuccessful.")
+   });   
+   this.loggedIn = false;
 }
 }
