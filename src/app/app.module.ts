@@ -60,7 +60,7 @@ import { DatasharingService } from './datasharing.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [FireStoreService, WebcamconnectService, AuthenticationService, DatasharingService ],
+  providers: [FireStoreService, WebcamconnectService, AuthenticationService, DatasharingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {Card} from './model/card'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import {Card} from './model/card'
 export class FireStoreService{
   businesscards: Observable<any[]>;
 
-  constructor(private db : AngularFirestore){
+  constructor(private db : AngularFirestore, private router: Router ){
    this.businesscards = db.collection('cards').valueChanges();   
    }
   
@@ -27,19 +28,28 @@ export class FireStoreService{
     Phone: businessCard.phone,
     Title: businessCard.title, 
     Web:  businessCard.web,
+    Id: businessCard.phone
 });
 }
 
- update(businessCard : Card){
+ update(businessCard : Card, id: string){
  console.log("Business card updated successfully.")
- this.db.collection('cards').doc(businessCard.phone).set({
+ try{
+ this.db.collection('cards').doc(id).set({
   Name: businessCard.name,
   Phone: businessCard.phone,
   Title: businessCard.title, 
   Web:  businessCard.web,
   Address: businessCard.address,
-  Email: businessCard.email
+  Email: businessCard.email,
+  Id: id 
 })
+  this.router.navigate(['/cards']);
+  console.log("Navigate to dashboard");
+ }catch{
+   alert("Update failed. Please try again")
+ }
+
 }
 
  destroy(id : string){

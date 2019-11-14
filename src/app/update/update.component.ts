@@ -3,6 +3,7 @@ import {FireStoreService} from '../firestore.service';
 import {Card} from '../model/card'
 import { FormControl, FormGroup } from '@angular/forms';
 import {BusinesscardComponent} from '../businesscard/businesscard.component'
+import { DatasharingService } from '../datasharing.service';
 
 @Component({
   selector: 'app-update',
@@ -10,8 +11,9 @@ import {BusinesscardComponent} from '../businesscard/businesscard.component'
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  @Input() id ;
- 
+  id ;
+  businessCard; 
+  test; 
 
   form = new FormGroup({
   name: new FormControl(), 
@@ -23,15 +25,18 @@ export class UpdateComponent implements OnInit {
   address: new FormControl()
   });  
 
-  constructor(private _firestoreService: FireStoreService) { }
+  constructor(private _firestoreService: FireStoreService, private _datasharing : DatasharingService) { }
 
   ngOnInit() {
+    this.id = this._datasharing.getCardId();
+    this.businessCard = this._datasharing.getCardObject();
+    this.setFormControls();
+
   }
 
   onSubmit(){
-    const businessCard = this.createBusinessCard();
-    console.log(businessCard);
-    this._firestoreService.create(businessCard);
+    this.businessCard = this.createBusinessCard();
+    this._firestoreService.update(this.businessCard, this.id);
     this.form.reset();
   }
 
@@ -45,6 +50,16 @@ export class UpdateComponent implements OnInit {
     businessCard.setWeb(this.form.controls['web'].value);
     businessCard.setAddress(this.form.controls['address'].value);
     return businessCard;
+  }
+
+  setFormControls(){
+    this.form.controls['name'].setValue(this.businessCard.getName());
+    this.form.controls['title'].setValue(this.businessCard.getTitle());
+    this.form.controls['company'].setValue(this.businessCard.getCompany());
+    this.form.controls['email'].setValue(this.businessCard.getEmail());
+    this.form.controls['phone'].setValue(this.businessCard.getPhone());
+    this.form.controls['web'].setValue(this.businessCard.getWeb());
+    this.form.controls['address'].setValue(this.businessCard.getAddress());
   }
 
   

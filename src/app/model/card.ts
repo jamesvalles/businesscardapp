@@ -50,6 +50,10 @@
         return this.email; 
     }
 
+    getCompany(){
+        return this.company; 
+    }
+
     getName(){
        return this.name; 
     }
