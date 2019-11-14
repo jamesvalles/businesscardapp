@@ -6,6 +6,7 @@ import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/catch';
 import {Card} from '../app/model/card';
 import { FireStoreService } from './firestore.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class WebcamconnectService {
@@ -17,6 +18,8 @@ export class WebcamconnectService {
   }
 
   detectText(payload: any) {
+
+    this.setBusinessCard(); 
     console.log("Detect text started.")
     this.http.post(this.url, payload).pluck('responses', '0', 'textAnnotations')
       .subscribe(
@@ -48,11 +51,25 @@ export class WebcamconnectService {
                 return;
               }
             
-              console.log(this.businesscard);
-              debugger
+              
             }
-          );
+          );console.log(this.businesscard);
+          this._firestoreservice.create(this.businesscard);
         }
+       
       );
+
+     
+      
+  }
+
+  setBusinessCard(){
+    this.businesscard.setName("NA");
+    this.businesscard.setPhone(Math.random().toString(36).substring(3,9));
+    this.businesscard.setEmail("NA");
+    this.businesscard.setWeb("NA");
+    this.businesscard.setTitle("NA")
+    this.businesscard.setAddress("NA")
+
   }
 }
