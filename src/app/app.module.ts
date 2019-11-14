@@ -27,6 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WebcamconnectService } from './webcamconnect.service';
 import {HttpClientModule} from '@angular/common/http';
 import { UpdateComponent } from './update/update.component';
+import { AuthenticationService } from './authentication.service';
+import { DatasharingService } from './datasharing.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,7 @@ import { UpdateComponent } from './update/update.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [FireStoreService, WebcamconnectService],
+  providers: [FireStoreService, WebcamconnectService, AuthenticationService, DatasharingService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

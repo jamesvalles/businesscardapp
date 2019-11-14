@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FireStoreService} from '../firestore.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-businesscard',
   templateUrl: './businesscard.component.html',
@@ -13,9 +14,11 @@ export class BusinesscardComponent implements OnInit {
   @Input() phone ;
   @Input() email ;
   @Input() company;
+
+  id : string; 
   
 
-  constructor(private _firestore : FireStoreService) { }
+  constructor(private _firestore : FireStoreService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,5 +26,11 @@ export class BusinesscardComponent implements OnInit {
   delete(phone : string){
     console.log("Delete business card button pressed. " + phone)
    this._firestore.destroy(phone);
+  }
+
+  update(phone : string){
+    
+    console.log("Update button pressed.")
+    this.router.navigate(['/update']);
   }
 }
