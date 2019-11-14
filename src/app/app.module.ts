@@ -26,6 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WebcamconnectService } from './webcamconnect.service';
 import {HttpClientModule} from '@angular/common/http';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {HttpClientModule} from '@angular/common/http';
     TopnavComponent,
     FooterComponent,
     CameraComponent,
-    ProfileComponent
+    ProfileComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
