@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, ILogincomp{
       console.log('Successfully signed in! Redirecting.');
       if(res){
       this._datashare.setauthstate(true);
-      this.router.navigate(['/cards']);
+      this.router.navigate(['/businessCards']);
       }
     })
     .catch(err => {
