@@ -29,7 +29,7 @@ export class NewsbusinesscardComponent implements OnInit, INewcard  {
     const businessCard = this.createBusinessCard();
     console.log(businessCard);
     this._firestoreService.create(businessCard);
-    this.router.navigate(['/cards']);
+    this.router.navigate(['/businessCards']);
     this.form.reset();
   }
 

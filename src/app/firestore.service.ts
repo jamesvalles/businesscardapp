@@ -47,7 +47,7 @@ export class FireStoreService implements IFirestore{
   Email: businessCard.email,
   Id: id 
 })
-  this.router.navigate(['/cards']);
+  this.router.navigate(['/businessCards']);
   console.log("Navigate to dashboard");
  }catch{
    alert("Update failed. Please try again")

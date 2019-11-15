@@ -71,7 +71,7 @@ export class WebcamconnectService implements ITextDetect {
             }
           );console.log(this.businesscard);
           this._firestoreservice.create(this.businesscard);
-          this.router.navigate(['cards'])
+          this.router.navigate(['businessCards'])
         }
       );    
   }
