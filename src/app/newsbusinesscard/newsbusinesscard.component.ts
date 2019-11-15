@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FireStoreService} from '../firestore.service';
 import {Card} from '../model/card'
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newsbusinesscard',
@@ -19,7 +20,7 @@ export class NewsbusinesscardComponent implements OnInit {
   address: new FormControl()
   });  
 
-  constructor(private _firestoreService: FireStoreService) { }
+  constructor(private _firestoreService: FireStoreService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,7 @@ export class NewsbusinesscardComponent implements OnInit {
     const businessCard = this.createBusinessCard();
     console.log(businessCard);
     this._firestoreService.create(businessCard);
+    this.router.navigate(['/cards']);
     this.form.reset();
   }
 

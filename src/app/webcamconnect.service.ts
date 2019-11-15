@@ -7,12 +7,13 @@ import 'rxjs/add/operator/catch';
 import {Card} from '../app/model/card';
 import { FireStoreService } from './firestore.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class WebcamconnectService {
   url: string;
   businesscard: Card;
-  constructor(private http: HttpClient, private _firestoreservice : FireStoreService ) {
+  constructor(private http: HttpClient, private _firestoreservice : FireStoreService, private router : Router ) {
     this.url = `https://vision.googleapis.com/v1/images:annotate?key=${environment.googleApi}`;
     this.businesscard = new Card();
   }
@@ -57,6 +58,7 @@ export class WebcamconnectService {
             }
           );console.log(this.businesscard);
           this._firestoreservice.create(this.businesscard);
+          this.router.navigate(['cards'])
         }
        
       );
