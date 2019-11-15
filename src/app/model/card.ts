@@ -1,4 +1,6 @@
-  export class Card {
+import { ICard } from '../interfaces/icard';
+
+  export class Card implements ICard{
    
     name: string; 
     title: string;
