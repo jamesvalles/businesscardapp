@@ -14,10 +14,11 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent}, 
   {path: 'camera', component: CameraComponent, canActivate:[AuthGuardGuard]},
-  {path: 'new', component: NewsbusinesscardComponent, canActivate:[AuthGuardGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuardGuard]},
-  {path: 'cards', component: BusinesscardsComponent, canActivate:[AuthGuardGuard]},
+  {path: 'newCard', component: NewsbusinesscardComponent, canActivate:[AuthGuardGuard]},
+  {path: 'userProfile', component: ProfileComponent, canActivate:[AuthGuardGuard]},
+  {path: 'businessCards', component: BusinesscardsComponent, canActivate:[AuthGuardGuard]},
   {path: 'update', component: UpdateComponent, canActivate:[AuthGuardGuard]},
+  {path: 'notFound', component: NotfoundComponent,  pathMatch: 'full' }, 
   {path: '**', component: NotfoundComponent,  pathMatch: 'full' }, 
   
 ];
