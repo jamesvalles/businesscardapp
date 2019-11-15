@@ -70,8 +70,10 @@ export class WebcamconnectService {
     this.businesscard.setPhone(Math.random().toString(36).substring(3,9));
     this.businesscard.setEmail("NA");
     this.businesscard.setWeb("NA");
-    this.businesscard.setTitle("NA")
-    this.businesscard.setAddress("NA")
+    this.businesscard.setTitle("NA");
+    this.businesscard.setAddress("NA");
+    this.businesscard.setCompany("NA");
+
 
   }
 }
