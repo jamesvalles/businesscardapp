@@ -6,6 +6,14 @@ Final Project
 Github: https://github.com/jamesvalles/businesscardapp
 Hosting addres: 
 
+
+Login instructions
+1) You can create an account or 2)
+Login using: 
+chandlergegg@gmail.com
+5DeepBreaths! 
+
+
 Hi there! Here is my final project which took over 60+ hours to complete.
 
 This application let's you store your business cards. You have two ways to enter your cards:
@@ -47,14 +55,19 @@ newCard
 '**' redirected to notFound
  
 Extra credit: 
-Added additional components indicated above with denoted with a *
 
+-Added additional components indicated above with denoted with a *
 -Worked to stylize, played with google fonts, bootstap, bootsnippets, css/html
+-Added footer 
+-
+
+Full functionality:
 -Can create a card
 -Read cards in from firebase displays on dashboard
--Update business card details and saves data base
+-Update business card details and saves to database
 -Remove business card from dashboard 
--User can logout/login
+-User can logout/login and is authenticated. 
+
 
 **Adding Card**
  1) you can use your webcam by clicking "Camera" on the left nav bar and pressing the camera icon with the plus sign below your camera feed on the right and then clicking on "Add Business Card" and you will be redirected to the card dashboard. 
