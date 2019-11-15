@@ -3,11 +3,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {Card} from './model/card'
 import { Router } from '@angular/router';
+import {IFirestore} from '../app/interfaces/ifirestore'
 
 @Injectable({
   providedIn: 'root'
 })
-export class FireStoreService{
+export class FireStoreService implements IFirestore{
   businesscards: Observable<any[]>;
 
   constructor(private db : AngularFirestore, private router: Router ){

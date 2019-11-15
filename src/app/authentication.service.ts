@@ -5,12 +5,13 @@ import { AngularFireModule } from '@angular/fire';
 import {environment} from '../environments/environment'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IAuth } from './interfaces/iauth';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService implements IAuth {
 
   authstate : Observable<any>; 
   user;
