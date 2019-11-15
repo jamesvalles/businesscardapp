@@ -20,3 +20,14 @@
 .form-signin{
     
 }
+
+.welcome-text{
+
+    position: relative;
+    left:480px;
+    top: 140px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    color: rgb(32, 32, 32);
+}
+ 

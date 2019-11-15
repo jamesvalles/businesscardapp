@@ -12,4 +12,10 @@ export class TopnavComponent implements OnInit {
   ngOnInit() {
   }
 
+  search(){
+    console.log("Search button pressed.")
+    alert("This functionality not yet available. Coming soon.");
+    
+  }
+
 }

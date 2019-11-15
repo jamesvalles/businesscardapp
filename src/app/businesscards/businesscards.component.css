@@ -2,9 +2,19 @@
     position: relative;
     max-width: 600px;
     left:450px;
-    top:100px; 
+    top:120px; 
 }
 
 ul{
     list-style-type:none;
+}
+
+.dashboard-text{
+
+    position: relative;
+    left:490px;
+    top: 100px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    color: rgb(143, 96, 57);
 }

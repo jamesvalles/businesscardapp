@@ -6,3 +6,13 @@
     padding: 15px; 
    
 }
+
+.newcard-text{
+
+    position: relative;
+    left:490px;
+    top: 100px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    color: rgb(143, 96, 57);
+}

@@ -1,4 +1,8 @@
-<div class="app-camera">
+<div> <span class="camera-text">
+    Capture your card</span></div>
+    <br>
+    
+    <div class="app-camera">
         <div class="mdc-card demo-card">
             <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
               <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
