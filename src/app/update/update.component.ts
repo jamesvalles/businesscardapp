@@ -4,13 +4,14 @@ import {Card} from '../model/card'
 import { FormControl, FormGroup } from '@angular/forms';
 import {BusinesscardComponent} from '../businesscard/businesscard.component'
 import { DatasharingService } from '../datasharing.service';
+import {IUpdate} from '../interfaces/iupdate'
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent implements OnInit, IUpdate{
   id ;
   businessCard; 
   test; 

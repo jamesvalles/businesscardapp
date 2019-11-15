@@ -3,6 +3,7 @@ import { AuthenticationService } from '../authentication.service';
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
 import { DatasharingService } from '../datasharing.service';
+import { ILogincomp } from '../interfaces/ilogincomp';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { DatasharingService } from '../datasharing.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, ILogincomp{
   loggedIn;
   constructor(private _authservice : AuthenticationService, private router : Router, private _datashare : DatasharingService) {
 

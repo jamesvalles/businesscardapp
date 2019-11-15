@@ -9,7 +9,6 @@ import { SearchbusinesscardsComponent } from './searchbusinesscards/searchbusine
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -40,7 +39,6 @@ import { DatasharingService } from './datasharing.service';
     LoginComponent,
     LogoutComponent,
     NotfoundComponent,
-    HomeComponent,
     NavbarComponent,
     TopnavComponent,
     FooterComponent,

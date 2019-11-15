@@ -5,13 +5,14 @@ import { ThrowStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
 import {AuthGuardGuard} from '../auth-guard.guard'
 import { DatasharingService } from '../datasharing.service';
+import { INavbar } from '../interfaces/inavbar';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, INavbar {
   loggedIn : boolean; 
   
 

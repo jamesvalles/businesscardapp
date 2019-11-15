@@ -3,13 +3,13 @@ import {FireStoreService} from '../firestore.service';
 import {Card} from '../model/card'
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import {INewcard} from '../interfaces/inewcard'
 @Component({
   selector: 'app-newsbusinesscard',
   templateUrl: './newsbusinesscard.component.html',
   styleUrls: ['./newsbusinesscard.component.css']
 })
-export class NewsbusinesscardComponent implements OnInit {
+export class NewsbusinesscardComponent implements OnInit, INewcard  {
   form = new FormGroup({
   name: new FormControl(), 
   title: new FormControl(), 

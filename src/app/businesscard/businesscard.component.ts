@@ -3,13 +3,14 @@ import {FireStoreService} from '../firestore.service';
 import { Router } from '@angular/router';
 import { DatasharingService } from '../datasharing.service';
 import {Card} from '../model/card'
+import { IBuscardcomp } from '../interfaces/ibuscardcomp';
 
 @Component({
   selector: 'app-businesscard',
   templateUrl: './businesscard.component.html',
   styleUrls: ['./businesscard.component.css']
 })
-export class BusinesscardComponent implements OnInit {
+export class BusinesscardComponent implements OnInit, IBuscardcomp {
   @Input() name ;
   @Input() title ;
   @Input() web ;
