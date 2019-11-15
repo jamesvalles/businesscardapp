@@ -26,6 +26,7 @@ export class FireStoreService{
     Email: businessCard.email,
     Name: businessCard.name,
     Phone: businessCard.phone,
+    Company: businessCard.company,
     Title: businessCard.title, 
     Web:  businessCard.web,
     Id: businessCard.phone
@@ -40,6 +41,7 @@ export class FireStoreService{
   Phone: businessCard.phone,
   Title: businessCard.title, 
   Web:  businessCard.web,
+  Company: businessCard.company,
   Address: businessCard.address,
   Email: businessCard.email,
   Id: id 
