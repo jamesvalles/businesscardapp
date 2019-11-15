@@ -8,6 +8,7 @@ export class DatasharingService {
 
   id : string;
   businessCard: Card; 
+  authstate: boolean;
 
   constructor() { }
 
@@ -23,5 +24,13 @@ export class DatasharingService {
 
   getCardObject(){
     return this.businessCard;
+  }
+
+  getauthstate(){
+    return this.authstate;
+  }
+
+  setauthstate(state : boolean){
+    this.authstate = state; 
   }
 }

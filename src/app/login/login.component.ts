@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
+import { DatasharingService } from '../datasharing.service';
 
 
 @Component({
@@ -10,8 +11,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loggedIn = false; 
-  constructor(private _authservice : AuthenticationService, private router : Router) {
+  loggedIn;
+  constructor(private _authservice : AuthenticationService, private router : Router, private _datashare : DatasharingService) {
 
    }
 
@@ -24,8 +25,10 @@ export class LoginComponent implements OnInit {
     this._authservice.signIn(f.controls['email'].value, f.controls['password'].value)
     .then(res => {
       console.log('Successfully signed in! Redirecting.');
-      this.router.navigate['/cards'];
-  
+      if(res){
+      this._datashare.setauthstate(true);
+      this.router.navigate(['/cards']);
+      }
     })
     .catch(err => {
 

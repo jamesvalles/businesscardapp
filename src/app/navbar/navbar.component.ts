@@ -3,6 +3,8 @@ import {AuthenticationService} from '../authentication.service'
 import {LoginComponent} from '../login/login.component'
 import { ThrowStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
+import {AuthGuardGuard} from '../auth-guard.guard'
+import { DatasharingService } from '../datasharing.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +12,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() loggedIn : boolean; 
+  loggedIn : boolean; 
   
 
-  constructor(private _fbauthstate : AuthenticationService, private router: Router) { 
-  
+  constructor(private _fbauthstate : AuthenticationService, private router: Router, private _datashare : DatasharingService) { 
+   
+    console.log("ngOnIt auth state: " + this.loggedIn);
   }
 
   ngOnInit() {
-    
+   this.loggedIn = this._datashare.getauthstate();
+   console.log("ngOnIt auth state: " + this.loggedIn);
   }
 
   ngOnDestory(){
@@ -28,10 +32,14 @@ export class NavbarComponent implements OnInit {
   logout(){
    this._fbauthstate.logout().then(function() {
      console.log("Logout successful.")
-   //  this.router.navigate['/login'];
+     this._datashare.setauthstate(false);
+    
+     this.router.navigate(['/login']);
    }).catch(function(error) {
      console.log("Logout unsuccessful.")
    });   
    this.loggedIn = false;
 }
+
+  
 }

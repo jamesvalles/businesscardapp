@@ -13,14 +13,16 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
 
   authstate : Observable<any>; 
+  user;
 
   constructor(private angularFireAuth : AngularFireModule, private router : Router) {
     firebase.initializeApp(environment.firebase);
+
    }
 
    ngOnInit(){
-     //this.authstate = new Observable(observer) =>{
-
+    
+   this.user =  firebase.auth().currentUser;
      }
 
    
@@ -48,14 +50,14 @@ export class AuthenticationService {
  }
 
   authCheck(): boolean{
-    let user = firebase.auth().currentUser
-    if(user != null){
-      console.log("User is logged in!" + user);
+    this.user =  firebase.auth().currentUser;
+    if(this.user != null){
+      console.log("User is logged in!" + this.user);
       //this.authstate = true;
       return true;
     }else{
      // this.authstate = false; 
-      console.log("User is not logged in!" + user );
+      console.log("User is not logged in!" + this.user );
       return false;
     }
   }
