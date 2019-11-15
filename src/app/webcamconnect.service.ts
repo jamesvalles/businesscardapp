@@ -30,11 +30,13 @@ export class WebcamconnectService implements ITextDetect {
             result => {
               const temp = result.description;
               // verify email
+
               const email = (temp.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))(.*)$/) || [''])[0];
               if (email !== '') {
                 this.businesscard.setEmail(email);
                 return;
               }     
+
               // verify phone
               const phone = (temp.match('^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}(.*)$') || [''])[0];
               if (phone !== '') {
@@ -49,8 +51,8 @@ export class WebcamconnectService implements ITextDetect {
                 this.businesscard.setName(fn + " " + ln);         
                 return;
               }
-
-              //company
+            
+              //address
               const address = (temp.match(/\d+(\s+\w+){1,}\s+(?:st(?:\.|reet)?|dr(?:\.|ive)?|pl(?:\.|ace)?|ave(?:\.|nue)?|rd|road|lane|drive|way|court|plaza|square|run|parkway|point|pike|square|driveway|trace|park|terrace|blvd)/) || [''])[0];
               if (address !== '') {
                // const fn = address.split(' ')[2];
@@ -60,6 +62,7 @@ export class WebcamconnectService implements ITextDetect {
               }
 
               //verify web 
+            
               const web = (temp.match('(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})') || [''])[0];
               if (web !== '') {
                 this.businesscard.setWeb(web);

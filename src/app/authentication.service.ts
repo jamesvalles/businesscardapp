@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app'
 import { AngularFireModule } from '@angular/fire';
 import {environment} from '../environments/environment'
@@ -8,16 +8,25 @@ import { Observable } from 'rxjs';
 import { IAuth } from './interfaces/iauth';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationService implements IAuth {
 
   authstate : Observable<any>; 
   user;
+  initialized: boolean = false;
+  
 
-  constructor(private angularFireAuth : AngularFireModule, private router : Router) {
-    firebase.initializeApp(environment.firebase);
+
+  constructor(private angularFireAuth : AngularFireModule, private router : Router, private _af : AngularFireAuth) {
+   // firebase.initializeApp(environment.firebase);
+
+
+   this._af.authState.subscribe(user => {
+    if (user)
+      {
+        localStorage.setItem('user', JSON.stringify(user));
+      }
+  })
 
    }
 
@@ -65,6 +74,7 @@ export class AuthenticationService implements IAuth {
 
   logout(){
     return firebase.auth().signOut();
+  
   }
 
 
@@ -76,4 +86,12 @@ getAuthState(){
   return this.authstate; 
 }
 
+getLocalStorageUser(): any {
+  return localStorage.getItem('user');
+}
+
+
+isLoggedIn(): boolean {
+  return this.getUser() !== null;
+}
 }

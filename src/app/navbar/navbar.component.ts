@@ -16,30 +16,30 @@ export class NavbarComponent implements OnInit, INavbar {
   loggedIn : boolean; 
   
 
-  constructor(private _fbauthstate : AuthenticationService, private router: Router, private _datashare : DatasharingService) { 
-   
+  
+
+  constructor(private _fbauthstate : AuthenticationService, private router: Router, private _datashare : DatasharingService, private _authguard : AuthGuardGuard) { 
+   this.loggedIn = _fbauthstate.isLoggedIn();
     console.log("ngOnIt auth state: " + this.loggedIn);
   }
 
   ngOnInit() {
-   this.loggedIn = this._datashare.getauthstate();
-   console.log("ngOnIt auth state: " + this.loggedIn);
-  }
+     }
 
   ngOnDestory(){
    
   }
 
   logout(){
-   this._fbauthstate.logout().then(function() {
+     this._fbauthstate.logout().then(function() {
      console.log("Logout successful.")
-     this._datashare.setauthstate(false);
-    
+     localStorage.removeItem('user');
+     //this._datashare.setauthstate(false);
      this.router.navigate(['/login']);
    }).catch(function(error) {
      console.log("Logout unsuccessful.")
    });   
-   this.loggedIn = false;
+
 }
 
   
