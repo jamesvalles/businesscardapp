@@ -4,7 +4,7 @@ Web Applications
 Final Project
 
 Github: https://github.com/jamesvalles/businesscardapp
-Hosting addres: 
+Hosting address: https://businesscards-f1b27.firebaseapp.com/login
 
 
 Login instructions
