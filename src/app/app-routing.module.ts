@@ -8,6 +8,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import {AuthGuardGuard} from '../app/auth-guard.guard';
 import { ProfileComponent } from './profile/profile.component';
 import {UpdateComponent} from './update/update.component'
+import { SearchbusinesscardsComponent } from './searchbusinesscards/searchbusinesscards.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'userProfile', component: ProfileComponent, canActivate:[AuthGuardGuard]},
   {path: 'businessCards', component: BusinesscardsComponent, canActivate:[AuthGuardGuard]},
   {path: 'update', component: UpdateComponent, canActivate:[AuthGuardGuard]},
+  {path: 'search', component: SearchbusinesscardsComponent,  pathMatch: 'full' }, 
   {path: 'notFound', component: NotfoundComponent,  pathMatch: 'full' }, 
   {path: '**', component: NotfoundComponent,  pathMatch: 'full' }, 
   

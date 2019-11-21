@@ -10,13 +10,18 @@ import {IFirestore} from '../app/interfaces/ifirestore'
 })
 export class FireStoreService implements IFirestore{
   businesscards: Observable<any[]>;
-
+  searches;
+  
   constructor(private db : AngularFirestore, private router: Router ){
    this.businesscards = db.collection('cards').valueChanges();   
    }
   
    read() : Observable<any[]>{
     return this.businesscards;
+   }
+
+   returnSearch() : Observable<any[]>{
+    return this.searches;
    }
 
   create(businessCard : Card){
@@ -58,5 +63,16 @@ export class FireStoreService implements IFirestore{
  destroy(id : string){
   console.log("Business card removed from Firebase. " + id)
   this.db.collection('cards').doc(id).delete();
+}
+
+
+search(searchQuery : string){
+  const query = this.db.firestore.collection('cards').where('Name', '==', searchQuery);
+
+  query.get().then( snapshot => {
+    this.router.navigate(['/search']);
+    this.searches = snapshot.docs;
+  });
+  
 }
 }

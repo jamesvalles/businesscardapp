@@ -1,1 +1,10 @@
-<p>searchbusinesscards works!</p>
+<span class="dashboard-text">Search results</span>
+<div class="app-searchbusinesscards">
+
+        <ul>
+                <li class="text" *ngFor="let card of businessCards">
+                   
+                    <app-businesscard [title] ="card._document.proto.fields.Title.stringValue" [name] = "card._document.proto.fields.Name.stringValue" [email] = "card._document.proto.fields.Email.stringValue" [phone] = "card._document.proto.fields.Phone.stringValue" [web] = "card._document.proto.fields.Web.stringValue" [company] = "card._document.proto.fields.Company.stringValue" [address] = "card._document.proto.fields.Address.stringValue"></app-businesscard>
+                </li>
+              </ul>
+</div>

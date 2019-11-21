@@ -1,3 +1,3 @@
 export interface ITopnav {
-    search() : void; 
+    search(searchQuery : string): void;
 }

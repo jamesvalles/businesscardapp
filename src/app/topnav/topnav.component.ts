@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ITopnav} from '../interfaces/itopnav'
+import {FireStoreService} from '../firestore.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topnav',
@@ -7,16 +9,16 @@ import {ITopnav} from '../interfaces/itopnav'
   styleUrls: ['./topnav.component.css']
 })
 export class TopnavComponent implements OnInit, ITopnav {
-
-  constructor() { }
+  searchQuery : string;
+  constructor(private db : FireStoreService, private router : Router) { }
 
   ngOnInit() {
   }
 
-  search(){
+  search(searchQuery : string){
+    this.db.search(searchQuery); 
     console.log("Search button pressed.")
-    alert("This functionality not yet available. Coming soon.");
-    
+ 
   }
 
 }
