@@ -53,7 +53,8 @@ export class FireStoreService implements IFirestore{
   Company: businessCard.company,
   Address: businessCard.address,
   Email: businessCard.email,
-  Id: id 
+  Id: id,
+  image: businessCard.image
 })
   this.router.navigate(['/businessCards']);
   console.log("Navigate to dashboard");

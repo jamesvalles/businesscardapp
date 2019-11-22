@@ -88,5 +88,6 @@ export class WebcamconnectService implements ITextDetect {
     this.businesscard.setAddress("NA");
     this.businesscard.setCompany("NA");
     this.businesscard.setImage(this.image);
+
   }
 }

@@ -53,5 +53,6 @@ export class BusinesscardComponent implements OnInit, IBuscardcomp {
     this.businessCard.setPhone(this.phone);
     this.businessCard.setWeb(this.web);
     this.businessCard.setAddress(this.address);
+    this.businessCard.setImage(this.image);
   }
 }
