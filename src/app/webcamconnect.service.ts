@@ -9,17 +9,20 @@ import { FireStoreService } from './firestore.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Router } from '@angular/router';
 import {ITextDetect} from '../app/interfaces/itextdetect';
+import { Url } from 'url';
 
 @Injectable()
 export class WebcamconnectService implements ITextDetect {
   url: string;
   businesscard: Card;
+  image: string; 
   constructor(private http: HttpClient, private _firestoreservice : FireStoreService, private router : Router ) {
     this.url = `https://vision.googleapis.com/v1/images:annotate?key=${environment.googleApi}`;
     this.businesscard = new Card();
   }
 
-  detectText(payload: any) {
+  detectText(payload: any, image : string) {
+    this.image = image; 
 
     this.setBusinessCard(); 
     console.log("Detect text started.")
@@ -84,5 +87,6 @@ export class WebcamconnectService implements ITextDetect {
     this.businesscard.setTitle("NA");
     this.businesscard.setAddress("NA");
     this.businesscard.setCompany("NA");
+    this.businesscard.setImage(this.image);
   }
 }

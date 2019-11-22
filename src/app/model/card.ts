@@ -1,4 +1,5 @@
 import { ICard } from '../interfaces/icard';
+import { runInThisContext } from 'vm';
 
   export class Card implements ICard{
    
@@ -9,6 +10,7 @@ import { ICard } from '../interfaces/icard';
     email: string; 
     web: string; 
     address : string; 
+    image: string;
    
     constructor(){
     }
@@ -44,6 +46,10 @@ import { ICard } from '../interfaces/icard';
         this.web = web;
     }
 
+    setImage(image : string){
+        this.image = image; 
+    }
+
     getAddress(){
        return this.address; 
     }
@@ -73,4 +79,7 @@ import { ICard } from '../interfaces/icard';
     }
 
 
+    getImage(){
+        return this.image; 
+    }
 }

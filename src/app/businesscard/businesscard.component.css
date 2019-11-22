@@ -30,3 +30,13 @@
     -webkit-font-smoothing: antialiased;
     
 }
+
+.image{
+    padding: 0px;
+    margin: 0px;
+    height: 200px;
+}
+
+.mdc-card__media{
+    
+}

@@ -18,12 +18,15 @@ export class BusinesscardComponent implements OnInit, IBuscardcomp {
   @Input() phone ;
   @Input() email ;
   @Input() company;
+  @Input() image;
 
   id : string; 
   businessCard : Card; 
   
 
-  constructor(private _firestore : FireStoreService, private router: Router, private _datasharing : DatasharingService) { }
+  constructor(private _firestore : FireStoreService, private router: Router, private _datasharing : DatasharingService) { 
+
+  }
 
   ngOnInit() {
   }

@@ -110,7 +110,7 @@ public save(){
     ]
   }
 
-  this._googleservice.detectText(payload);
+  this._googleservice.detectText(payload, this.imageUrl);
 
 }
 

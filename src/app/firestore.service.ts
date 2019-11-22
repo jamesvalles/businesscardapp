@@ -37,7 +37,8 @@ export class FireStoreService implements IFirestore{
     Company: businessCard.company,
     Title: businessCard.title, 
     Web:  businessCard.web,
-    Id: businessCard.phone
+    Id: businessCard.phone,
+    image: businessCard.image
 });
 }
 
