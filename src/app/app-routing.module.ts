@@ -22,11 +22,10 @@ const routes: Routes = [
   {path: 'search', component: SearchbusinesscardsComponent,  pathMatch: 'full' }, 
   {path: 'notFound', component: NotfoundComponent,  pathMatch: 'full' }, 
   {path: '**', component: NotfoundComponent,  pathMatch: 'full' }, 
-  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes,  {onSameUrlNavigation: 'reload'})],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

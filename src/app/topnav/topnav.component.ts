@@ -3,6 +3,7 @@ import {ITopnav} from '../interfaces/itopnav'
 import {FireStoreService} from '../firestore.service'
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-topnav',
   templateUrl: './topnav.component.html',
@@ -17,8 +18,9 @@ export class TopnavComponent implements OnInit, ITopnav {
 
   search(searchQuery : string){
     this.db.search(searchQuery); 
-    console.log("Search button pressed.")
- 
+    console.log("Search button pressed. Term: " + searchQuery);
+    this.searchQuery = "";
   }
 
+    
 }
