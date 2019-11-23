@@ -20,6 +20,7 @@ export class TopnavComponent implements OnInit, ITopnav {
     this.db.search(searchQuery); 
     console.log("Search button pressed. Term: " + searchQuery);
     this.searchQuery = "";
+    
   }
 
     
