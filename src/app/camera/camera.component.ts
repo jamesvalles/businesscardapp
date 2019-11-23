@@ -37,8 +37,8 @@ public allowCameraSwitch = true;
 public multipleWebcamsAvailable = false;
 public deviceId: string;
 public videoOptions: MediaTrackConstraints = {
-  // width: {ideal: 1024},
-  // height: {ideal: 576}
+   width: {ideal: 1024},
+   height: {ideal: 576}
 };
 public errors: WebcamInitError[] = [];
 
