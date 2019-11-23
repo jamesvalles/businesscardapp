@@ -21,13 +21,15 @@
                  </div>
                  <br>
           </div> 
-      
+        
         </div>
 
-
+       <div class = "helptext-cam"> <span class= "camera-helptext">Please position business card so that it fills up entire camera view.</span></div>
 
 <div class="snapshot" *ngIf="webcamImage">
         <br> <img [src]="imageUrl" width="500" />
        </div>
-       <div class = "save" *ngIf="webcamImage">  <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="webcamImage" (click)="save();">Add Business Card</button>
+       <div class = "save" *ngIf="webcamImage">  <button class="btn btn-outline-success my-2 my-sm-0" *ngIf="webcamImage" (click)="save();"><i id = "save" class="material-icons">
+          library_add
+          </i>  Add Business Card</button>
        </div>

@@ -10,7 +10,7 @@
 .save{
     position: relative;
     left:560px;
-    width:200px;
+    width:223px;
     top: -273px;
     padding: 15px;
     background: rgb(243, 243, 243);
@@ -31,3 +31,19 @@
     color: rgb(143, 96, 57);
 }
 
+.camera-helptext{
+margin: 3px;
+    font-family: 'arial';
+    font-size: 13px;
+    color: rgb(80, 78, 78);
+}
+
+.helptext-cam{
+    position: relative;
+    top: 6px;
+}
+
+#save{
+    position: relative;
+    top:5px;
+}
