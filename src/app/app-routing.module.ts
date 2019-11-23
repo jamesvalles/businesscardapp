@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'userProfile', component: ProfileComponent, canActivate:[AuthGuardGuard]},
   {path: 'businessCards', component: BusinesscardsComponent, canActivate:[AuthGuardGuard]},
   {path: 'update', component: UpdateComponent, canActivate:[AuthGuardGuard]},
-  {path: 'search', component: SearchbusinesscardsComponent,  pathMatch: 'full' }, 
+  {path: 'search', component: SearchbusinesscardsComponent,  pathMatch: 'full', canActivate:[AuthGuardGuard]}, 
   {path: 'notFound', component: NotfoundComponent,  pathMatch: 'full' }, 
   {path: '**', component: NotfoundComponent,  pathMatch: 'full' }, 
 ];
@@ -28,4 +28,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  
+ }

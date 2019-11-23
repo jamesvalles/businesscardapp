@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app'
 import { AngularFireModule } from '@angular/fire';
-import {environment} from '../environments/environment'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAuth } from './interfaces/iauth';
+import {Subscription} from 'rxjs'
 
 
 @Injectable()
@@ -14,14 +14,12 @@ export class AuthenticationService implements IAuth {
   authstate : Observable<any>; 
   user;
   initialized: boolean = false;
+  authsubscription : Subscription;
   
 
 
   constructor(private angularFireAuth : AngularFireModule, private router : Router, private _af : AngularFireAuth) {
-   // firebase.initializeApp(environment.firebase);
-
-
-   this._af.authState.subscribe(user => {
+  this.authsubscription = this._af.authState.subscribe(user => {
     if (user)
       {
         localStorage.setItem('user', JSON.stringify(user));
@@ -94,4 +92,9 @@ getLocalStorageUser(): any {
 isLoggedIn(): boolean {
   return this.getUser() !== null;
 }
+
+ngOnDestroy() {
+  this.authsubscription.unsubscribe();
+}
+
 }

@@ -12,13 +12,14 @@ import { AuthenticationService } from './authentication.service';
 
 export class AppComponent {
   title = 'businesscard-app';
+  user;
 
   constructor(private _authService : AuthenticationService){
     
   }
 
   ngOnInit() {
-    
+    console.log("Page reloaded.")
   }
 
 }

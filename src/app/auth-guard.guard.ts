@@ -20,12 +20,16 @@ export class AuthGuardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.authstate =  this._authService.authCheck();
+     // this.authstate =  this._authService.authCheck();
+     //console.log("Hello " + this._authService.getLocalStorageUser())
+     this.authstate = this._authService.getLocalStorageUser() !== null;
        if(this.authstate){
+         console.log("Auth state: true.");
         return true; 
       }else{
       // alert("You don't have permission to view this page.");
-       this.router.navigate(['']);
+      console.log("Auth state: false.");
+       this.router.navigate(['/login']);
        return false; 
       }
     }
