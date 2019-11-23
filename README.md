@@ -30,12 +30,14 @@ BusinessCards (aka dashboard) *(This was optional but completed)
 Login 
 Logout(Fully implemented on the navbar)
 NotFound 
+search
 
 **Additional components implemented:**
 update - lets you update business card*
 topnav - top nav bar where search box is located*
 profile - this is optional*
 footer - added footer * 
+search - suppports searching by full name (on all pages)
 
 **Services**
 Created authservice, firebase service, webcam connect service with also connects to google vision api 
@@ -53,13 +55,15 @@ camera
 newCard
 '' redirected to login 
 '**' redirected to notFound
+search 
  
 Extra credit: 
 
 -Added additional components indicated above with denoted with a *
 -Worked to stylize, played with google fonts, bootstap, bootsnippets, css/html
 -Added footer 
--
+-Pop up alerts added for invalid login and invalid empty search.
+
 
 Full functionality:
 -Can create a card
@@ -67,6 +71,8 @@ Full functionality:
 -Update business card details and saves to database
 -Remove business card from dashboard 
 -User can logout/login and is authenticated. 
+-Search for a card by person's full name. 
+-If using a webcam to add card, image is store in firestore and base64 image is retrieved and displayed if available, if not default card will show.  
 
 
 **Adding Card**
@@ -77,6 +83,9 @@ Full functionality:
 
  **Updating a Card**
  The card dashboard shows all cards that have been entered. To edit a card, simply click on the pencil icon for the specific card you would like to edit. You will then be redirected to the update page. Once you have entered new information into the update form, click "Update Card" and you will be redirected to the card dashboard. 
+
+**Searching**
+Search is supported. Simply enter a person's FULL NAME (FIRST AND LAST AS ONE).
 
  **About Google and Camera API Accuracy**
  The accuarcy depends on card formatting, certain numbers will work better than other number formats. I spent a considerable amount of time trying to match regular expression to extract, phone, email, address, name, etc. 
