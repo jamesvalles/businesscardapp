@@ -42,10 +42,12 @@ export class FireStoreService implements IFirestore{
 });
 }
 
- update(businessCard : Card, id: string){
+ update(businessCard : Card){
+  console.log("in firestore, update, id: " + businessCard.getId());
  console.log("Business card updated successfully.")
+ 
  try{
- this.db.collection('cards').doc(id).set({
+ this.db.collection('cards').doc(businessCard.id).set({
   Name: businessCard.name,
   Phone: businessCard.phone,
   Title: businessCard.title, 
@@ -53,7 +55,7 @@ export class FireStoreService implements IFirestore{
   Company: businessCard.company,
   Address: businessCard.address,
   Email: businessCard.email,
-  Id: id,
+  Id: businessCard.id,
   image: businessCard.image
 })
   this.router.navigate(['/businessCards']);
@@ -61,12 +63,12 @@ export class FireStoreService implements IFirestore{
  }catch{
    alert("Update failed. Please try again")
  }
-
 }
 
  destroy(id : string){
   console.log("Business card removed from Firebase. " + id)
   this.db.collection('cards').doc(id).delete();
+  this.router.navigate(['/businessCards']);
 }
 
 
@@ -75,12 +77,11 @@ search(searchQuery : string){
   const query = this.db.firestore.collection('cards').where('Name', '==' , searchQuery);
   query.get().then( snapshot => {
     this.searches = snapshot.docs;   
-    this.router.navigate(['/search']);
-    
+    this.router.navigate(['/search']);   
   });
 }else{
   console.log("Invalid search entry.");
   alert("Search by full name. Invalid entry.");
-} 
-}
+    } 
+  }
 }

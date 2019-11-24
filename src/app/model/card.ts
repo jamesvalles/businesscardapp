@@ -11,6 +11,7 @@ import { runInThisContext } from 'vm';
     web: string; 
     address : string; 
     image: string;
+    id: string; 
    
     constructor(){
     }
@@ -44,6 +45,10 @@ import { runInThisContext } from 'vm';
 
     setWeb(web: string){
         this.web = web;
+    }
+
+    setId(id: string){
+        this.id = id;
     }
 
     setImage(image : string){
@@ -80,6 +85,10 @@ import { runInThisContext } from 'vm';
 
 
     getImage(){
+        return this.image; 
+    }
+
+    getId(){
         return this.image; 
     }
 }

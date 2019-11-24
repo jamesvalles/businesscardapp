@@ -44,6 +44,7 @@ export class NewsbusinesscardComponent implements OnInit, INewcard  {
     businessCard.setPhone(this.form.controls['phone'].value);
     businessCard.setWeb(this.form.controls['web'].value);
     businessCard.setAddress(this.form.controls['address'].value);
+    businessCard.setId(this.form.controls['phone'].value);
     businessCard.setImage("");
     return businessCard;
   }

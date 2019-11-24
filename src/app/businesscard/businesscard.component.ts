@@ -19,8 +19,9 @@ export class BusinesscardComponent implements OnInit, IBuscardcomp {
   @Input() email ;
   @Input() company;
   @Input() image;
+  @Input() id; 
 
-  id : string; 
+  
   businessCard : Card; 
   
 
@@ -31,15 +32,15 @@ export class BusinesscardComponent implements OnInit, IBuscardcomp {
   ngOnInit() {
   }
 
-  delete(phone : string){
-    console.log("Delete business card button pressed. " + phone)
-   this._firestore.destroy(phone);
+  delete(id : string){
+    console.log("Delete business card button pressed. " + this.id)
+   this._firestore.destroy(this.id);
   }
 
-  update(phone : string){
+  update(id : string){
     this.createCard(); 
-    console.log("Update button pressed.")
-    this._datasharing.setCardId(phone, this.businessCard);
+    console.log("Update button pressed. " + this.id)
+    this._datasharing.setCardId(this.id, this.businessCard);
     this.router.navigate(['/update']);
   }
 
@@ -54,5 +55,7 @@ export class BusinesscardComponent implements OnInit, IBuscardcomp {
     this.businessCard.setWeb(this.web);
     this.businessCard.setAddress(this.address);
     this.businessCard.setImage(this.image);
+    this.businessCard.setId(this.id);
+
   }
 }

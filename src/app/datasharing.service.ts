@@ -13,8 +13,8 @@ export class DatasharingService {
   constructor() { }
 
   setCardId(id : string, businessCard : Card){
-    this.id = id;
     this.businessCard = businessCard; 
+    this.id = businessCard.getId(); 
 
   }
 

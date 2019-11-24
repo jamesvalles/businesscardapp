@@ -13,7 +13,7 @@ import {IUpdate} from '../interfaces/iupdate'
 })
 export class UpdateComponent implements OnInit, IUpdate{
   id ;
-  businessCard; 
+  businessCard : Card; 
   test; 
   image;
 
@@ -30,16 +30,15 @@ export class UpdateComponent implements OnInit, IUpdate{
   constructor(private _firestoreService: FireStoreService, private _datasharing : DatasharingService) { }
 
   ngOnInit() {
-    this.id = this._datasharing.getCardId();
     this.businessCard = this._datasharing.getCardObject();
+    this.id = this.businessCard.id; 
     this.image = this._datasharing.getCardObject().getImage();
     this.setFormControls();
   }
 
   onSubmit(){
     this.businessCard = this.createBusinessCard();
-    console.log("Current Update (Image) " + this.businessCard.getImage())
-    this._firestoreService.update(this.businessCard, this.id);
+    this._firestoreService.update(this.businessCard);
     this.form.reset();
   }
 
@@ -52,8 +51,8 @@ export class UpdateComponent implements OnInit, IUpdate{
     businessCard.setPhone(this.form.controls['phone'].value);
     businessCard.setWeb(this.form.controls['web'].value);
     businessCard.setAddress(this.form.controls['address'].value);
-    console.log("Business card this.company, ngonit update comp, image : " + this.image);
     businessCard.setImage(this.image);
+    businessCard.setId(this.id);
     return businessCard;
   }
 
@@ -65,9 +64,7 @@ export class UpdateComponent implements OnInit, IUpdate{
     this.form.controls['phone'].setValue(this.businessCard.getPhone());
     this.form.controls['web'].setValue(this.businessCard.getWeb());
     this.form.controls['address'].setValue(this.businessCard.getAddress());
-    this.image  = this.businessCard.getImage(); 
+    this.image  = this.businessCard.getImage();     
   }
-
-  
 }
 
